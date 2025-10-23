@@ -1,0 +1,9 @@
+# SlicerPySera/SlicerPySera.s4ext
+homepage https://example.com/SlicerPySera
+category Radiomics
+contributor Your Name (Institution)
+description PySera: radiomics feature extraction tools integrated into 3D Slicer.
+status stable
+iconurl
+screenshoturls
+depends
