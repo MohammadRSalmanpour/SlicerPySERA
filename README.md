@@ -54,18 +54,57 @@ Open 3D Slicer → Select **PySERA** from the module selector → Load an image 
 
 ---
 
-## License
+## 📬Contact
+SERA is available **free of charge**.
+For access, questions, or feedback:
 
-Licensed under the **MIT License**. See `LICENSE.txt` for details.
+**Dr. Mohammad R. Salmanpour (Team Lead)**  
+📧[msalman@bccrc.ca](mailto:msalman@bccrc.ca) | [m.salmanpoor66@gmail.com](mailto:m.salmanpoor66@gmail.com), [m.salmanpour@ubc.ca](mailto:m.salmanpour@ubc.ca)
 
 ---
 
-## Metadata
+## 🛠️Maintenance
+For technical support and maintenance inquiries, please contact:
 
-* **Extension name:** SlicerPySERA
-* **GitHub topic:** `3d-slicer-extension`
+**Dr. Mohammad R. Salmanpour (Team Lead)**  
+ msalman@bccrc.ca – m.salmanpoor66@gmail.com – m.salmanpour@ubc.ca
+
+## 👥Authors
+- **Dr. Mohammad R. Salmanpour (Team Lead, Fund Provider, Evaluator, Medical Imaging Expert, Backend Development, Code Refactoring, Debugging, Library Management, IBSI Standardization, and Activation of the PySERA Library, and GUI Development in 3D Slicer)** – [msalman@bccrc.ca](mailto:msalman@bccrc.ca), [m.salmanpoor66@gmail.com](mailto:m.salmanpoor66@gmail.com), [m.salmanpour@ubc.ca](mailto:m.salmanpour@ubc.ca)
+- **Sirwan Barichin (GUI Development in 3D Slicer)** – [sirwanbarichin@gmail.com](mailto:sirwanbarichin@gmail.com)
+- **Dr. Mehrdad Oveisi (Evaluator, Software Engineer, and Advisor)** – [moveisi@cs.ubc.ca](mailto:moveisi@cs.ubc.ca)
+- **Dr. Arman Rahmim (Fund Provider, Medical Imaging Expert, Evaluator, and Advisor)** – [arman.rahmim@ubc.ca](mailto:arman.rahmim@ubc.ca), [arahmim@bccrc.ca ](mailto:arahmim@bccrc.ca)
+
+## 📚Citation
+
+```bibtex
+@software{pysera2025,
+  title={pysera: A Simple Python Library for Radiomics Feature Extraction},
+  author={pysera Team},
+  year={2025},
+  url={https://github.com/MohammadRSalmanpour/PySERA}
+}
+```
+## 📜License
+
+This open-source software is released under the **MIT License**, which grants permission to use, modify, and distribute it for any purpose, including research or commercial use, without requiring modified versions to be shared as open source. See the [LICENSE](LICENSE) file for details.
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/MohammadRSalmanpour/PySERA/issues)
+- **Documentation**: This README and the included guides
+- **Examples**: See `examples/basic_usage.py`
+
+## Acknowledgment
+
+This study was supported by:  
+
+- [🔬 **Qu**antitative **R**adiomolecular **I**maging and **T**herapy (Qurit) Lab, University of British Columbia, Vancouver, BC, Canada](https://www.qurit.ca)  
+- [🏥 BC Cancer Research Institute, Department of Basic and Translational Research, Vancouver, BC, Canada](https://www.bccrc.ca/)  
+- [💻 **Vir**tual **Collab**oration (VirCollab) Group, Vancouver, BC, Canada](https://www.vircollab.com)  
+- [🏭 **Tec**hnological **Vi**rtual **Co**llaboration **Corp**oration (TECVICO Corp.), Vancouver, BC, Canada](https://www.tecvico.com)  
+We gratefully acknowledge funding from the💰 Natural Sciences and Engineering Research Council of Canada (**NSERC**) Idea to Innovation [**I2I**] Grant **GR034192**.
 ---
 
-## Acknowledgments
+*PySERA - Simple, powerful radiomics in one function call. 🚀*
 
-Developed as part of the **PySERA Project** to advance reproducible radiomics in medical imaging through open, integrative tooling in **3D Slicer**.
