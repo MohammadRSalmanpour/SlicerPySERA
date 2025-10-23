@@ -64,12 +64,6 @@ Licensed under the **MIT License**. See `LICENSE.txt` for details.
 
 * **Extension name:** SlicerPySERA
 * **GitHub topic:** `3d-slicer-extension`
-* **License:** MIT
-* **Homepage:** [https://github.com/MohammadRSalmanpour/SlicerPySERA](https://github.com/MohammadRSalmanpour/SlicerPySERA)
-* **Icon:** `https://raw.githubusercontent.com/MohammadRSalmanpour/SlicerPySERA/main/Resources/Icons/SlicerPySERA.png`
-* **Maintainer:** Mohammad R. Salmanpour
-* **Compatible with:** 3D Slicer 5.6+
-
 ---
 
 ## Acknowledgments

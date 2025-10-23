@@ -2,12 +2,12 @@
 cmake_minimum_required(VERSION 3.16.3)
 project(SlicerPySera)
 
-set(EXTENSION_HOMEPAGE "https://example.com/SlicerPySera")
+set(EXTENSION_HOMEPAGE "https://github.com/MohammadRSalmanpour/SlicerPySERA")
 set(EXTENSION_CATEGORY "Radiomics")
-set(EXTENSION_CONTRIBUTORS "Your Name (Institution)")
-set(EXTENSION_DESCRIPTION "PySera: radiomics extraction library + Slicer UI wrapper")
-set(EXTENSION_ICONURL "")
-set(EXTENSION_SCREENSHOTURLS "")
+set(EXTENSION_CONTRIBUTORS "Mohammad R. Salmanpour")
+set(EXTENSION_DESCRIPTION "PySERA radiomics extraction library + Slicer ScriptedLoadableModule UI wrapper")
+set(EXTENSION_ICONURL "https://raw.githubusercontent.com/MohammadRSalmanpour/SlicerPySERA/main/Resources/Icons/SlicerPySERA.png")
+set(EXTENSION_SCREENSHOTURLS "https://raw.githubusercontent.com/MohammadRSalmanpour/SlicerPySERA/main/Resources/Screenshots/screenshot1.png")
 
 find_package(Slicer REQUIRED)
 include(${Slicer_USE_FILE})
