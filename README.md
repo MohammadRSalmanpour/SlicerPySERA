@@ -1,4 +1,4 @@
-# SlicerPySERA — PySERA Radiomics Extension for 3D Slicer
+# 🧩 SlicerPySERA — PySERA Radiomics Extension for 3D Slicer
 
 [![3D Slicer Extension](https://img.shields.io/badge/3D%20Slicer-Extension-blue)](https://github.com/topics/3d-slicer-extension)
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
@@ -6,194 +6,218 @@
 [![Status](https://img.shields.io/badge/status-stable-green.svg)](#version-history)
 
 **SlicerPySERA** integrates the [**PySERA**](https://github.com/MohammadRSalmanpour/PySERA) radiomics engine into **3D Slicer** as an interactive extension.  
-It enables reproducible, IBSI-compliant handcrafted radiomics as well as deep feature extraction directly within Slicer.
+It enables reproducible, IBSI-compliant handcrafted radiomics as well as deep feature extraction directly within the Slicer environment.
 
 ---
 
-## Overview
-
-SlicerPySERA provides a graphical interface for configuring and running radiomics pipelines on images and segmentations loaded in 3D Slicer. Feature sets, dimensions, and IBSI-related preprocessing options are available from the module UI. The extension uses the [PySERA library](https://github.com/MohammadRSalmanpour/PySERA) to execute the extraction and save results automatically.
-
-- Handcrafted radiomics (IBSI-compliant) and deep features (pre-trained models)
-- Batch processing and optional multiprocessing
-- Clear logging and parameter capture for reproducibility
-- Works with Slicer data (NIfTI, NRRD, DICOM, RTSTRUCT, etc.)
+## 📘 Table of Contents
+1. [Overview](#overview)  
+2. [Repository Structure](#repository-structure)  
+3. [Key Features](#key-features)  
+4. [Installation](#installation)  
+5. [Usage in 3D Slicer](#usage-in-3d-slicer)  
+6. [Data & Batch Expectations](#data--batch-expectations)  
+7. [Parameters](#parameters-selected)  
+   - [Common (both modes)](#common-both-modes)  
+   - [Handcrafted only (IBSI-related)](#handcrafted-only-ibsi-related)  
+   - [Deep Feature Mode](#deep-feature-mode)  
+8. [Output](#output)  
+9. [Troubleshooting](#troubleshooting)  
+10. [Integration Notes](#integration-notes)  
+11. [Version History](#version-history)  
+12. [Contact](#contact)  
+13. [Maintenance](#maintenance)  
+14. [Authors](#authors)  
+15. [Citation](#citation)  
+16. [License](#license)  
+17. [Support](#support)  
+18. [Acknowledgment](#acknowledgment)
 
 ---
 
-## Repository Structure
+## 🧠 Overview
+
+SlicerPySERA provides a graphical interface for configuring and running radiomics pipelines on medical images and segmentations within **3D Slicer**. It exposes all relevant IBSI (Image Biomarker Standardisation Initiative)-aligned preprocessing and feature extraction settings directly through the GUI.
+
+It leverages the [PySERA library](https://github.com/MohammadRSalmanpour/PySERA) for computation, ensuring standardized, reproducible, and validated radiomics results.
+
+**Key capabilities:**
+- IBSI-compliant handcrafted radiomics and deep features  
+- Multi-format compatibility (NIfTI, DICOM, NRRD, RTSTRUCT, etc.)  
+- Batch and parallel processing support  
+- Comprehensive logs and parameter export for reproducibility  
+
+---
+
+## 📁 Repository Structure
 
 ```
 pysera/        # Core Python radiomics library used by the extension
 PySera/        # ScriptedLoadableModule for 3D Slicer (this extension)
-PySeraCLI/     # Optional CLI wrapper
-PySeraQt/      # Optional Qt-based alternative UI (not required for Slicer)
+PySeraCLI/     # Optional command-line interface wrapper
+PySeraQt/      # Optional Qt-based alternative UI
 Data/          # Sample/test data (optional)
 ```
 
 ---
 
-## Features
+## ⚙️ Key Features
 
-- **Slicer-native UI** for selecting inputs, tuning IBSI parameters, and choosing feature categories/dimensions  
-- **Handcrafted features**: IBSI-compliant first-order, texture, morphology, diagnostics, moment-invariant  
-- **Deep features**: ResNet50, VGG16, DenseNet121 (optional mode)  
-- **Reproducibility**: parameter snapshot and report export
-
----
-
-## Installation
-
-### Install as a Scripted Module (no C++ build)
-
-1. Clone or download this repository.
-2. In 3D Slicer, go to **Edit → Application Settings → Modules → Additional Module Paths**, add the path to the `PySera/` directory, and restart Slicer.
-3. Ensure the `pysera` library is importable in Slicer’s Python:
-   - Easiest: copy or add the `pysera/` folder to `PySera/lib/pysera/` (so it’s bundled with the module), **or**
-   - Install `pysera` into Slicer’s Python (advanced users).
-4. After restart, the **PySERA** module will appear in the **Radiomics** category.
-
-> Note: This extension is designed to run inside 3D Slicer. The [PySERA library](https://github.com/MohammadRSalmanpour/PySERA) can also be used independently in standard Python environments.
+- **Fully integrated with 3D Slicer** – no external scripts required  
+- **IBSI-compliant handcrafted features** (morphological, texture, statistical, etc.)  
+- **Deep-learning feature extraction** with pretrained models (ResNet50, VGG16, DenseNet121)  
+- **Advanced configurability** – bin size, discretization, resampling, intensity rounding  
+- **High reproducibility** – parameter snapshot and structured report export  
 
 ---
 
-## Usage (in 3D Slicer)
+## 💻 Installation
+
+### Option 1 — Scripted Module (recommended)
+
+1. Clone or download this repository.  
+2. In 3D Slicer, navigate to:  
+   **Edit → Application Settings → Modules → Additional Module Paths**  
+   Add the path to the `PySera/` directory, then restart Slicer.  
+3. Ensure `pysera` is available to Slicer’s Python:  
+   - Simplest: copy `pysera/` into `PySera/lib/pysera/`  
+   - Alternatively: install `pysera` into Slicer’s Python interpreter.  
+4. After restarting, **PySERA** appears under the *Radiomics* module category.
+
+> 💡 **Note:** The [PySERA library](https://github.com/MohammadRSalmanpour/PySERA) can also be used independently in Python.
+
+---
+
+## 🖥️ Usage in 3D Slicer
 
 1. Load an image and segmentation (mask) into Slicer.  
 2. Open **Modules → Radiomics → PySERA**.  
-3. In the **I/O** tab, choose:
-   - **Image File** (or loaded volume)
-   - **Mask File** (or loaded segmentation/labelmap)
-   - **Destination** and **Temporary** folders  
-4. In **Features Extraction Mode**, choose **Handcrafted** or **Deep** and, if deep, select the model.  
-5. In **Settings**, adjust:
-   - Common options (workers, minimal ROI volume, logging/report level)
-   - IBSI parameters (if **Handcrafted** mode) such as discretization, interpolation, isotropic voxel size, re-segmentation thresholds, etc.  
-6. Use **Feature Subset** to select categories/dimensions (for handcrafted mode).  
-7. Click **Apply**. The module will run extraction, print a status summary, and save outputs (CSV/Excel) to the destination folder.
+3. Select image and mask inputs, and specify output directories.  
+4. Choose **Handcrafted** or **Deep** feature extraction mode.  
+5. Adjust **IBSI parameters** (for handcrafted mode).  
+6. Select categories/dimensions for feature subsets.  
+7. Click **Apply** to start feature extraction.
 
 ---
 
-## Data & Batch Expectations
+## 📦 Data & Batch Expectations
 
-- Works with common medical formats loaded in Slicer (NIfTI/NRRD/DICOM).  
-- For DICOM series and RTSTRUCT, ensure consistent patient subfolders and paired image/mask organization if you process from disk (outside Slicer’s scene).  
-- When batch-processing folders, keep images and masks in mirrored structures and avoid extra nesting.
+- Compatible with **NIfTI**, **NRRD**, **DICOM**, and **RTSTRUCT** inputs.  
+- Ensure image/mask folder structures are **mirrored** and contain no extra nesting.  
+- RTSTRUCT processing uses a temporary cache folder (`temporary_files_path`).  
 
 ---
 
-## Parameters (selected)
+## ⚙️ Parameters (selected)
 
-### **Common (both modes)**
+### 🧭 Common (both modes)
 
 | Parameter | Description |
 |------------|-------------|
-| `num_workers` | Number of worker threads (“auto” or integer) |
-| `enable_parallelism` | Enables multiprocessing if available |
-| `apply_preprocessing` | Apply IBSI-aligned preprocessing before extraction |
-| `min_roi_volume` | Minimum valid ROI volume (mm³) |
-| `roi_selection_mode` | ROI selection mode: “per_Img” / “per_region” |
+| `num_workers` | Number of CPU cores or “auto” for automatic selection |
+| `enable_parallelism` | Enables multiprocessing if supported |
+| `apply_preprocessing` | Apply IBSI-aligned ROI preprocessing |
+| `min_roi_volume` | Minimum ROI volume threshold (mm³) |
+| `roi_selection_mode` | “per_Img” or “per_region” for ROI grouping |
 | `roi_num` | Number of ROIs to process |
-| `aggregation_lesion` | Aggregate multiple lesions if enabled |
-| `report` | Logging/report verbosity: “all”, “info”, “warning”, “error”, “none” |
-| `temporary_files_path` | Path for temporary cache files |
+| `aggregation_lesion` | Enable multi-lesion feature aggregation |
+| `report` | Logging level: “all”, “info”, “warning”, “error”, “none” |
+| `temporary_files_path` | Directory for temporary cache files |
 
 ---
 
-### **Handcrafted only (IBSI-related)**
+### 🧩 Handcrafted only (IBSI-related)
 
 | Category | Parameter | Description |
 |-----------|------------|-------------|
-| **Data Type** | `radiomics_DataType` | Imaging modality type (“CT”, “MR”, “PET”, “OTHER”) |
-| **Discretization** | `radiomics_DiscType`, `bin_size` | Quantization strategy: “FBS” or “FBN”; intensity bin size |
-| **Resampling** | `radiomics_isScale`, `radiomics_VoxInterp`, `radiomics_ROIInterp`, `radiomics_isotVoxSize`, `radiomics_isotVoxSize2D`, `radiomics_isIsot2D` | Resampling and isotropic voxel configuration |
-| **Intensity Handling** | `radiomics_isGLround`, `radiomics_isReSegRng`, `radiomics_ReSegIntrvl01`, `radiomics_ReSegIntrvl02`, `radiomics_isOutliers`, `radiomics_isQuntzStat`, `radiomics_ROI_PV` | Controls gray-level rounding, re-segmentation, and PV correction |
-| **IVH (Intensity-Volume Histogram)** | `radiomics_IVH_Type`, `radiomics_IVH_DiscCont`, `radiomics_IVH_binSize` | IVH type, discretization continuity, and bin size |
-| **Feature Value Mode** | `feature_value_mode` | Determines feature precision: “REAL_VALUE” or “APPROXIMATE_VALUE” |
+| **Data Type** | `radiomics_DataType` | Imaging modality (“CT”, “MR”, “PET”, “OTHER”) |
+| **Discretization** | `radiomics_DiscType`, `bin_size` | Quantization type (“FBS”/“FBN”) and bin width |
+| **Resampling** | `radiomics_isScale`, `radiomics_VoxInterp`, `radiomics_ROIInterp`, `radiomics_isotVoxSize`, `radiomics_isotVoxSize2D`, `radiomics_isIsot2D` | Voxel scaling, interpolation, isotropic resampling |
+| **Intensity Handling** | `radiomics_isGLround`, `radiomics_isReSegRng`, `radiomics_ReSegIntrvl01`, `radiomics_ReSegIntrvl02`, `radiomics_isOutliers`, `radiomics_isQuntzStat`, `radiomics_ROI_PV` | Rounding, re-segmentation range, and partial-volume control |
+| **IVH Parameters** | `radiomics_IVH_Type`, `radiomics_IVH_DiscCont`, `radiomics_IVH_binSize` | Controls Intensity-Volume Histogram discretization |
+| **Feature Precision** | `feature_value_mode` | “REAL_VALUE” or “APPROXIMATE_VALUE” for NaN handling |
 
 ---
 
-### **Deep feature mode**
+### 🤖 Deep Feature Mode
 
 | Parameter | Description |
 |------------|-------------|
-| `extraction_mode` | Set to `"deep_feature"` to enable deep learning-based extraction |
-| `deep_learning_model` | Deep CNN backbone model (`resnet50`, `vgg16`, `densenet121`) |
-| *Note:* | Handcrafted-only IBSI parameters are ignored in this mode |
+| `extraction_mode` | Set to `"deep_feature"` to enable deep CNN feature extraction |
+| `deep_learning_model` | Deep model backbone (`resnet50`, `vgg16`, `densenet121`) |
+| *Note:* | IBSI parameters are ignored when using deep feature extraction mode. |
 
 ---
 
-## Output
+## 📊 Output
 
-- **CSV/Excel** output including:
-  - `Radiomics_Features` sheet — IBSI-compliant naming for handcrafted or deep feature vectors  
-  - `Parameters` sheet — parameter configuration snapshot  
-  - `Report` sheet — warnings/errors per case (if logging enabled)
-- In-module log summary during extraction.
-
----
-
-## Troubleshooting
-
-- If the **Report level** has no visible effect, ensure the setting in **Settings → Report** is applied before clicking **Apply**.  
-- If you encounter `TypeError: 'str' object is not callable` for `currentText`, note that Qt bindings in Slicer may expose it as a property instead of a callable.  
-- Folder-based batch processing requires mirrored image/mask structures with no nested folders.  
-- Verify the `temporary_files_path` is writable (used for DICOM-RT mask streaming).
+- **Excel Report** with:
+  - `Radiomics_Features`: All extracted features  
+  - `Parameters`: Run configuration  
+  - `Report`: Warnings or extraction issues  
+- **In-Slicer summary log** after each run.
 
 ---
 
-## Integration Notes
+## 🧩 Troubleshooting
 
-- Built as a **ScriptedLoadableModule** using Qt/CTK widgets supported by 3D Slicer.  
-- All IBSI parameters are organized into **Common** and **Handcrafted-only** groups.  
-- Category/dimension synchronization is maintained dynamically.
+| Issue | Resolution |
+|--------|-------------|
+| No visible effect of report level | Ensure report level is set *before* pressing “Apply”. |
+| `'str' object is not callable` error | Occurs due to Qt bindings; fixed internally via safe access. |
+| Missing output | Verify mirrored image/mask structure and writable destination folder. |
+| DICOM RTSTRUCT memory errors | Confirm `temporary_files_path` is on a writable drive. |
 
 ---
 
-## Version History
+## 🧱 Integration Notes
+
+- Implemented as a **ScriptedLoadableModule** using Qt/CTK.  
+- Parameters are grouped for **Handcrafted** and **Deep** extraction modes.  
+- Synchronization maintained between selected categories and dimensions.
+
+---
+
+## 🕒 Version History
 
 ```
 v1
 └─ v1.0
-   └─ v1.0.0
+   └─ v1.0.0 — Initial stable release
 ```
 
 ---
 
-## Contact
+## 📬 Contact
 
-SERA is available free of charge.  
-For access, questions, or feedback:
-
-**Dr. Mohammad R. Salmanpour (Team Lead)**  
-msalman@bccrc.ca · m.salmanpoor66@gmail.com · m.salmanpour@ubc.ca
-
----
-
-## Maintenance
-
-For technical support and maintenance inquiries:
+For general inquiries or academic collaboration:
 
 **Dr. Mohammad R. Salmanpour (Team Lead)**  
-msalman@bccrc.ca · m.salmanpoor66@gmail.com · m.salmanpour@ubc.ca
-
-**Sirwan Barichin**  
-sirwanbarichin@gmail.com
+📧 msalman@bccrc.ca · m.salmanpoor66@gmail.com · m.salmanpour@ubc.ca  
 
 ---
 
-## Authors
+## 🔧 Maintenance
 
-- **Dr. Mohammad R. Salmanpour** – Team Lead, Fund Provider, Evaluator, Medical Imaging Expert, Backend Developer, IBSI Standardization, and Slicer GUI Development  
-- **Sirwan Barichin** – IBSI Standardization, Debugging, Activation of PySERA Library, and Slicer GUI Development  
-- **Dr. Mehrdad Oveisi** – Evaluator, Software Engineer, and Advisor  
-- **Dr. Arman Rahmim** – Fund Provider, Medical Imaging Expert, Evaluator, and Advisor  
+**Dr. Mohammad R. Salmanpour** – Lead Developer  
+**Sirwan Barichin** – GUI Developer  
 
 ---
 
-## Citation
+## 👥 Authors
 
-If you use this extension or the PySERA library in your research, please cite both as follows:
+| Name | Role | Contact |
+|------|------|----------|
+| **Dr. Mohammad R. Salmanpour** | Team Lead, IBSI Standardization, Core Developer | msalman@bccrc.ca |
+| **Sirwan Barichin** | GUI Development, Integration, Debugging | sirwanbarichin@gmail.com |
+| **Dr. Mehrdad Oveisi** | Evaluator, Software Engineering Advisor | moveisi@cs.ubc.ca |
+| **Dr. Arman Rahmim** | Funding, Evaluation, Medical Imaging Expert | arman.rahmim@ubc.ca |
+
+---
+
+## 📚 Citation
+
+If you use this extension or PySERA in your research, please cite both:
 
 ```bibtex
 @software{slicerpysera2025,
@@ -213,33 +237,33 @@ If you use this extension or the PySERA library in your research, please cite bo
 
 ---
 
-## License
+## ⚖️ License
 
 Released under the **MIT License**.  
 See [LICENSE](LICENSE) for details.
 
 ---
 
-## Support
+## 🧭 Support
 
-- Issues: [GitHub Issues](https://github.com/MohammadRSalmanpour/SlicerPySERA/issues)
-- Documentation: This README and in-module help  
-- Examples: See `examples/` in the PySERA library repository
+- Issues: [GitHub Issues](https://github.com/MohammadRSalmanpour/SlicerPySERA/issues)  
+- Documentation: This README and module help  
+- Examples: See [PySERA Examples](https://github.com/MohammadRSalmanpour/PySERA/tree/main/examples)
 
 ---
 
-## Acknowledgment
+## 🏛️ Acknowledgment
 
 Supported by:
+- **Quantitative Radiomolecular Imaging and Therapy (Qurit) Lab**, UBC, Canada  
+- **BC Cancer Research Institute**, Vancouver, Canada  
+- **Virtual Collaboration (VirCollab) Group**, Canada  
+- **Technological Virtual Collaboration Corporation (TECVICO Corp.)**, Canada  
 
-- Quantitative Radiomolecular Imaging and Therapy (Qurit) Lab, University of British Columbia, Vancouver, Canada  
-- BC Cancer Research Institute, Department of Basic and Translational Research, Vancouver, Canada  
-- Virtual Collaboration (VirCollab) Group, Vancouver, Canada  
-- Technological Virtual Collaboration Corporation (TECVICO Corp.), Vancouver, Canada  
-
-Funding provided by the **Natural Sciences and Engineering Research Council of Canada (NSERC)** – *Idea to Innovation (I2I) Grant GR034192.*
+Funding provided by the **Natural Sciences and Engineering Research Council of Canada (NSERC)** —  
+*Idea to Innovation (I2I) Grant GR034192.*
 
 ---
 
-*This repository distributes the **SlicerPySERA** 3D Slicer extension.  
-The [PySERA core library](https://github.com/MohammadRSalmanpour/PySERA) is maintained as a separate, standalone Python package.*
+*This repository provides the **SlicerPySERA** extension for 3D Slicer.*  
+The [**PySERA core library**](https://github.com/MohammadRSalmanpour/PySERA) is maintained separately for standalone Python usage.
