@@ -199,22 +199,24 @@ For general inquiries or academic collaboration:
 
 ## Maintenance
 
-**Dr. Mohammad R. Salmanpour** – Lead Developer  
-**Sirwan Barichin** – GUI Developer  
+For technical support and maintenance inquiries:
+
+**Dr. Mohammad R. Salmanpour (Team Lead)**  
+msalman@bccrc.ca · m.salmanpoor66@gmail.com · m.salmanpour@ubc.ca
+
+**Sirwan Barichin**  
+sirwanbarichin@gmail.com
 
 ---
 
 ## Authors
 
-| Name | Role | Contact |
-|------|------|----------|
-| **Dr. Mohammad R. Salmanpour** | Team Lead, IBSI Standardization, Core Developer | msalman@bccrc.ca |
-| **Sirwan Barichin** | GUI Development, Integration, Debugging | sirwanbarichin@gmail.com |
-| **Dr. Mehrdad Oveisi** | Evaluator, Software Engineering Advisor | moveisi@cs.ubc.ca |
-| **Dr. Arman Rahmim** | Funding, Evaluation, Medical Imaging Expert | arman.rahmim@ubc.ca |
+- **Dr. Mohammad R. Salmanpour** – Team Lead, Fund Provider, Evaluator, Medical Imaging Expert, Backend Developer, IBSI Standardization, and Slicer GUI Development  
+- **Sirwan Barichin** – IBSI Standardization, Debugging, Activation of PySERA Library, and Slicer GUI Development  
+- **Dr. Mehrdad Oveisi** – Evaluator, Software Engineer, and Advisor  
+- **Dr. Arman Rahmim** – Fund Provider, Medical Imaging Expert, Evaluator, and Advisor  
 
 ---
-
 ## Citation
 
 If you use this extension or PySERA in your research, please cite both:
