@@ -1,4 +1,4 @@
-# 🧩 SlicerPySERA — PySERA Radiomics Extension for 3D Slicer
+# SlicerPySERA — PySERA Radiomics Extension for 3D Slicer
 
 [![3D Slicer Extension](https://img.shields.io/badge/3D%20Slicer-Extension-blue)](https://github.com/topics/3d-slicer-extension)
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
@@ -10,7 +10,7 @@ It enables reproducible, IBSI-compliant handcrafted radiomics as well as deep fe
 
 ---
 
-## 📘 Table of Contents
+## Table of Contents
 1. [Overview](#overview)  
 2. [Repository Structure](#repository-structure)  
 3. [Key Features](#key-features)  
@@ -35,7 +35,7 @@ It enables reproducible, IBSI-compliant handcrafted radiomics as well as deep fe
 
 ---
 
-## 🧠 Overview
+## Overview
 
 SlicerPySERA provides a graphical interface for configuring and running radiomics pipelines on medical images and segmentations within **3D Slicer**. It exposes all relevant IBSI (Image Biomarker Standardisation Initiative)-aligned preprocessing and feature extraction settings directly through the GUI.
 
@@ -49,7 +49,7 @@ It leverages the [PySERA library](https://github.com/MohammadRSalmanpour/PySERA)
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 pysera/        # Core Python radiomics library used by the extension
@@ -61,7 +61,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## ⚙️ Key Features
+## Key Features
 
 - **Fully integrated with 3D Slicer** – no external scripts required  
 - **IBSI-compliant handcrafted features** (morphological, texture, statistical, etc.)  
@@ -71,7 +71,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## 💻 Installation
+## Installation
 
 ### Option 1 — Scripted Module (recommended)
 
@@ -84,11 +84,11 @@ Data/          # Sample/test data (optional)
    - Alternatively: install `pysera` into Slicer’s Python interpreter.  
 4. After restarting, **PySERA** appears under the *Radiomics* module category.
 
-> 💡 **Note:** The [PySERA library](https://github.com/MohammadRSalmanpour/PySERA) can also be used independently in Python.
+> **Note:** The [PySERA library](https://github.com/MohammadRSalmanpour/PySERA) can also be used independently in Python.
 
 ---
 
-## 🖥️ Usage in 3D Slicer
+## Usage in 3D Slicer
 
 1. Load an image and segmentation (mask) into Slicer.  
 2. Open **Modules → Radiomics → PySERA**.  
@@ -100,7 +100,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## 📦 Data & Batch Expectations
+## Data & Batch Expectations
 
 - Compatible with **NIfTI**, **NRRD**, **DICOM**, and **RTSTRUCT** inputs.  
 - Ensure image/mask folder structures are **mirrored** and contain no extra nesting.  
@@ -108,9 +108,9 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## ⚙️ Parameters (selected)
+## Parameters (selected)
 
-### 🧭 Common (both modes)
+### Common (both modes)
 
 | Parameter | Description |
 |------------|-------------|
@@ -126,7 +126,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-### 🧩 Handcrafted only (IBSI-related)
+### Handcrafted only (IBSI-related)
 
 | Category | Parameter | Description |
 |-----------|------------|-------------|
@@ -139,7 +139,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-### 🤖 Deep Feature Mode
+### Deep Feature Mode
 
 | Parameter | Description |
 |------------|-------------|
@@ -149,7 +149,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## 📊 Output
+## Output
 
 - **Excel Report** with:
   - `Radiomics_Features`: All extracted features  
@@ -159,7 +159,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## 🧩 Troubleshooting
+## Troubleshooting
 
 | Issue | Resolution |
 |--------|-------------|
@@ -170,7 +170,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## 🧱 Integration Notes
+## Integration Notes
 
 - Implemented as a **ScriptedLoadableModule** using Qt/CTK.  
 - Parameters are grouped for **Handcrafted** and **Deep** extraction modes.  
@@ -178,7 +178,7 @@ Data/          # Sample/test data (optional)
 
 ---
 
-## 🕒 Version History
+## Version History
 
 ```
 v1
@@ -188,7 +188,7 @@ v1
 
 ---
 
-## 📬 Contact
+## Contact
 
 For general inquiries or academic collaboration:
 
@@ -197,14 +197,14 @@ For general inquiries or academic collaboration:
 
 ---
 
-## 🔧 Maintenance
+## Maintenance
 
 **Dr. Mohammad R. Salmanpour** – Lead Developer  
 **Sirwan Barichin** – GUI Developer  
 
 ---
 
-## 👥 Authors
+## Authors
 
 | Name | Role | Contact |
 |------|------|----------|
@@ -215,7 +215,7 @@ For general inquiries or academic collaboration:
 
 ---
 
-## 📚 Citation
+## Citation
 
 If you use this extension or PySERA in your research, please cite both:
 
@@ -237,14 +237,14 @@ If you use this extension or PySERA in your research, please cite both:
 
 ---
 
-## ⚖️ License
+## License
 
 Released under the **MIT License**.  
 See [LICENSE](LICENSE) for details.
 
 ---
 
-## 🧭 Support
+## Support
 
 - Issues: [GitHub Issues](https://github.com/MohammadRSalmanpour/SlicerPySERA/issues)  
 - Documentation: This README and module help  
@@ -252,7 +252,7 @@ See [LICENSE](LICENSE) for details.
 
 ---
 
-## 🏛️ Acknowledgment
+## Acknowledgment
 
 Supported by:
 - **Quantitative Radiomolecular Imaging and Therapy (Qurit) Lab**, UBC, Canada  
