@@ -211,12 +211,13 @@ sirwanbarichin@gmail.com
 
 ## Authors
 
-- **Dr. Mohammad R. Salmanpour** – Team Lead, Fund Provider, Evaluator, Medical Imaging Expert, Backend Developer, IBSI Standardization, and Slicer GUI Development  
-- **Sirwan Barichin** – IBSI Standardization, Debugging, Activation of PySERA Library, and Slicer GUI Development  
-- **Dr. Mehrdad Oveisi** – Evaluator, Software Engineer, and Advisor  
-- **Dr. Arman Rahmim** – Fund Provider, Medical Imaging Expert, Evaluator, and Advisor  
+- **Dr. Mohammad R. Salmanpour** (Team Lead, Fund Provider, Evaluator, Medical Imaging Expert, Backend, Refactoring, Debugging, Library Management, IBSI Standardization, Slicer GUI) – msalman@bccrc.ca, m.salmanpoor66@gmail.com, m.salmanpour@ubc.ca  
+- **Sirwan Barichin** (IBSI Standardization, Debugging, Activation of PySERA Library, Slicer GUI) – sirwanbarichin@gmail.com  
+- **Dr. Mehrdad Oveisi** (Evaluator, Software Engineer, Advisor) – moveisi@cs.ubc.ca  
+- **Dr. Arman Rahmim** (Fund Provider, Medical Imaging Expert, Evaluator, Advisor) – arman.rahmim@ubc.ca, arahmm@bccrc.ca
 
 ---
+
 ## Citation
 
 If you use this extension or PySERA in your research, please cite both:
