@@ -84,20 +84,42 @@ Data/          # Sample/test data (optional)
 
 ## Parameters (selected)
 
-**Common (both modes):**  
-- `num_workers` (“auto” or integer), `enable_parallelism`, `apply_preprocessing`, `min_roi_volume`, `roi_selection_mode` (“per_Img” / “per_region”), `roi_num`, `aggregation_lesion`, `report`, `temporary_files_path`
+### **Common (both modes)**
 
-**Handcrafted only (IBSI-related):**  
-- `radiomics_DataType` (“CT”, “MR”, “PET”, “OTHER”)  
-- `radiomics_DiscType` (“FBS” or “FBN”) and `bin_size`  
-- Resampling: `radiomics_isScale`, `radiomics_VoxInterp`, `radiomics_ROIInterp`, `radiomics_isotVoxSize`, `radiomics_isotVoxSize2D`, `radiomics_isIsot2D`  
-- Intensity handling: `radiomics_isGLround`, `radiomics_isReSegRng`, `radiomics_ReSegIntrvl01`, `radiomics_ReSegIntrvl02`, `radiomics_isOutliers`, `radiomics_isQuntzStat`, `radiomics_ROI_PV`  
-- IVH settings: `radiomics_IVH_Type`, `radiomics_IVH_DiscCont`, `radiomics_IVH_binSize`  
-- `feature_value_mode` (“REAL_VALUE”, “APPROXIMATE_VALUE”)
+| Parameter | Description |
+|------------|-------------|
+| `num_workers` | Number of worker threads (“auto” or integer) |
+| `enable_parallelism` | Enables multiprocessing if available |
+| `apply_preprocessing` | Apply IBSI-aligned preprocessing before extraction |
+| `min_roi_volume` | Minimum valid ROI volume (mm³) |
+| `roi_selection_mode` | ROI selection mode: “per_Img” / “per_region” |
+| `roi_num` | Number of ROIs to process |
+| `aggregation_lesion` | Aggregate multiple lesions if enabled |
+| `report` | Logging/report verbosity: “all”, “info”, “warning”, “error”, “none” |
+| `temporary_files_path` | Path for temporary cache files |
 
-**Deep feature mode:**  
-- `extraction_mode="deep_feature"` and `deep_learning_model` (`resnet50`, `vgg16`, `densenet121`)  
-- Handcrafted-only parameters are not used when deep mode is active.
+---
+
+### **Handcrafted only (IBSI-related)**
+
+| Category | Parameter | Description |
+|-----------|------------|-------------|
+| **Data Type** | `radiomics_DataType` | Imaging modality type (“CT”, “MR”, “PET”, “OTHER”) |
+| **Discretization** | `radiomics_DiscType`, `bin_size` | Quantization strategy: “FBS” or “FBN”; intensity bin size |
+| **Resampling** | `radiomics_isScale`, `radiomics_VoxInterp`, `radiomics_ROIInterp`, `radiomics_isotVoxSize`, `radiomics_isotVoxSize2D`, `radiomics_isIsot2D` | Resampling and isotropic voxel configuration |
+| **Intensity Handling** | `radiomics_isGLround`, `radiomics_isReSegRng`, `radiomics_ReSegIntrvl01`, `radiomics_ReSegIntrvl02`, `radiomics_isOutliers`, `radiomics_isQuntzStat`, `radiomics_ROI_PV` | Controls gray-level rounding, re-segmentation, and PV correction |
+| **IVH (Intensity-Volume Histogram)** | `radiomics_IVH_Type`, `radiomics_IVH_DiscCont`, `radiomics_IVH_binSize` | IVH type, discretization continuity, and bin size |
+| **Feature Value Mode** | `feature_value_mode` | Determines feature precision: “REAL_VALUE” or “APPROXIMATE_VALUE” |
+
+---
+
+### **Deep feature mode**
+
+| Parameter | Description |
+|------------|-------------|
+| `extraction_mode` | Set to `"deep_feature"` to enable deep learning-based extraction |
+| `deep_learning_model` | Deep CNN backbone model (`resnet50`, `vgg16`, `densenet121`) |
+| *Note:* | Handcrafted-only IBSI parameters are ignored in this mode |
 
 ---
 
